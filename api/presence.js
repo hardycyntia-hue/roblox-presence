@@ -15,6 +15,7 @@ export default async function handler(req, res) {
   });
 
   const data = await response.json();
+  console.log("PRESENCE DATA:", JSON.stringify(data));
   const presence = data.userPresences?.[0];
 
   if (!presence) return res.status(404).json({ error: "introuvable" });
