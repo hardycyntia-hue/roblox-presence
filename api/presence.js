@@ -7,7 +7,10 @@ export default async function handler(req, res) {
 
   const response = await fetch("https://presence.roblox.com/v1/presence/users", {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
+    headers: {
+      "Content-Type": "application/json",
+      "Cookie": `.ROBLOSECURITY=${process.env.ROBLOX_COOKIE}`
+    },
     body: JSON.stringify({ userIds: [userId] })
   });
 
